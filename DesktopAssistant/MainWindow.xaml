@@ -1,0 +1,153 @@
+﻿<Window x:Name="window" x:Class="DesktopAssistant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopAssistant"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        mc:Ignorable="d"
+        Title="DesktopAssistant" ResizeMode="CanResize" Background="Transparent" AllowsTransparency="True" WindowStyle="None"  WindowStartupLocation="Manual" ShowInTaskbar="False" Loaded="MainWindow_Loaded">
+    <Grid>
+        <Border CornerRadius="4" Background="Black"  Opacity="0.3" />
+        <!--Rectangle Stroke="Black" Fill="Black" Opacity="0.3"/-->
+        <Line x:Name="line"  X2="{Binding ActualWidth, ElementName=window, Mode=OneWay}" Stroke="White" Opacity="0.3" />
+        <StackPanel x:Name="TopPanel" Orientation="Horizontal"  HorizontalAlignment="Right">
+            <Button Style="{StaticResource BtnCustomStyle}"  x:Name="svgbtn1" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <Image Source="{StaticResource svg1}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Style="{StaticResource BtnCustomStyle}"  x:Name="svgbtn2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <Image Source="{StaticResource svg2}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Style="{StaticResource BtnCustomStyle}" x:Name="svgbtn3" VerticalAlignment="Top" HorizontalAlignment="Right" Click="svgbtn3_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <Image Source="{StaticResource svg3}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Popup x:Name="ChangeViewBtn" IsOpen="False" PlacementTarget="{Binding ElementName=svgbtn3}" StaysOpen="False" PopupAnimation="Slide" AllowsTransparency="True" HorizontalOffset="-75" VerticalOffset="4" >
+                <Button x:Name="ChangeViewButton" Background="Black" Style="{StaticResource ChangeButton}" Foreground="Transparent" Opacity="0.3" Click="ChangeViwBtn_Click" >
+                    <Viewbox x:Name="ButtonPopupBox">
+                    <TextBlock x:Name="ButtonPopupText" Foreground="White" Text="隐藏已固定" FontFamily="SimHei"/>
+                    </Viewbox>
+                </Button>
+            </Popup>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Viewbox x:Name="TitleBox" Grid.Column="0" Stretch="Uniform"  HorizontalAlignment="Left" VerticalAlignment="Stretch" >
+                <TextBlock x:Name="Title" Foreground="White" Text="桌面助手" FontFamily="SimHei Bold"/>
+            </Viewbox>
+            <Viewbox x:Name="Column1" Grid.Column="1" Stretch="Uniform"  HorizontalAlignment="Left" VerticalAlignment="Stretch" >
+                <StackPanel>
+                    <TextBlock x:Name="Title1" Foreground="White" Text="已固定" FontFamily="SimHei"/>
+                </StackPanel>
+            </Viewbox>
+            <StackPanel x:Name="PinnedItems" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <StackPanel x:Name="Panel1" Orientation="Horizontal" >
+                    <Button Style="{StaticResource ItemButton}" x:Name="btn1" VerticalAlignment="Top" Click="btn1_Click">
+                        <Grid>
+                            <Image  VerticalAlignment="Top" x:Name="Image1" Grid.Column="1"  />
+                            <Viewbox Grid.Column="2" x:Name="Text1" VerticalAlignment="Bottom">
+                                <TextBlock  x:Name="TextBlock1" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                            </Viewbox>
+                        </Grid>
+                    </Button>
+                    <Button Style="{StaticResource ItemButton}" x:Name="btn2" VerticalAlignment="Top" Click="btn2_Click">
+                        <Grid>
+                            <Image VerticalAlignment="Top" x:Name="Image2" Grid.Column="1"   />
+                            <Viewbox Grid.Column="2" x:Name="Text2" VerticalAlignment="Bottom">
+                                <TextBlock  x:Name="TextBlock2" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                            </Viewbox>
+                        </Grid>
+                    </Button>
+                    <Button Style="{StaticResource ItemButton}" x:Name="btn3" VerticalAlignment="Top" Click="btn3_Click">
+                        <Grid>
+                            <Image VerticalAlignment="Top" x:Name="Image3" Grid.Column="1"   />
+                            <Viewbox Grid.Column="2" x:Name="Text3" VerticalAlignment="Bottom">
+                                <TextBlock  x:Name="TextBlock3" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                            </Viewbox>
+                        </Grid>
+                    </Button>
+                    <Button Style="{StaticResource ItemButton}" x:Name="btn4" VerticalAlignment="Top" Click="btn4_Click">
+                        <Grid>
+                            <Image VerticalAlignment="Top" x:Name="Image4" Grid.Column="1"   />
+                            <Viewbox Grid.Column="2" x:Name="Text4" VerticalAlignment="Bottom">
+                                <TextBlock  x:Name="TextBlock4" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                            </Viewbox>
+                        </Grid>
+                    </Button>
+                    <Button Style="{StaticResource ItemButton}" x:Name="btn5" VerticalAlignment="Top" Click="btn5_Click">
+                        <Grid>
+                            <Image VerticalAlignment="Top" x:Name="Image5" Grid.Column="1"   />
+                            <Viewbox Grid.Column="2" x:Name="Text5" VerticalAlignment="Bottom">
+                                <TextBlock  x:Name="TextBlock5" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                            </Viewbox>
+                        </Grid>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <Viewbox x:Name="Column2" Grid.Column="1" Stretch="Uniform"  HorizontalAlignment="Left" VerticalAlignment="Stretch" >
+                <StackPanel>
+                    <TextBlock x:Name="Title2" Foreground="White" Text="常用软件" FontFamily="SimHei"/>
+                </StackPanel>
+            </Viewbox>
+            <StackPanel x:Name="FrequentApps" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <Button Style="{StaticResource ItemButton}" x:Name="btn2_1" VerticalAlignment="Top" Click="btn2_1_Click">
+                    <Grid>
+                        <Image VerticalAlignment="Top" x:Name="Image2_1" Grid.Column="1"   />
+                        <Viewbox Grid.Column="2" x:Name="Text2_1" VerticalAlignment="Bottom">
+                            <TextBlock x:Name="TextBlock2_1" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                        </Viewbox>
+                    </Grid>
+                </Button>
+                <Button Style="{StaticResource ItemButton}" x:Name="btn2_2" VerticalAlignment="Top" Click="btn2_2_Click">
+                        <Grid>
+                            <Image VerticalAlignment="Top" x:Name="Image2_2" Grid.Column="1"   />
+                            <Viewbox Grid.Column="2" x:Name="Text2_2" VerticalAlignment="Bottom">
+                            <TextBlock x:Name="TextBlock2_2" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                            </Viewbox>
+                        </Grid>
+                </Button>
+                <Button Style="{StaticResource ItemButton}" x:Name="btn2_3" VerticalAlignment="Top" Click="btn2_3_Click">
+                    <Grid>
+                        <Image VerticalAlignment="Top" x:Name="Image2_3" Grid.Column="1"   />
+                        <Viewbox Grid.Column="2" x:Name="Text2_3" VerticalAlignment="Bottom">
+                            <TextBlock x:Name="TextBlock2_3" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                        </Viewbox>
+                    </Grid>
+                </Button>
+                <Button Style="{StaticResource ItemButton}" x:Name="btn2_4" VerticalAlignment="Top" Click="btn2_4_Click">
+                    <Grid>
+                        <Image VerticalAlignment="Top" x:Name="Image2_4" Grid.Column="1"   />
+                        <Viewbox Grid.Column="2" x:Name="Text2_4" VerticalAlignment="Bottom">
+                            <TextBlock x:Name="TextBlock2_4" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                        </Viewbox>
+                    </Grid>
+                </Button>
+                <Button Style="{StaticResource ItemButton}" x:Name="btn2_5" VerticalAlignment="Top" Click="btn2_5_Click">
+                    <Grid>
+                        <Image VerticalAlignment="Top" x:Name="Image2_5" Grid.Column="1"   />
+                        <Viewbox Grid.Column="2" x:Name="Text2_5" VerticalAlignment="Bottom">
+                            <TextBlock x:Name="TextBlock2_5" Foreground="White"  HorizontalAlignment="Center"  Text="123"/>
+                        </Viewbox>
+                    </Grid>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

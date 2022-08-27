@@ -1,0 +1,75 @@
+﻿<Application x:Class="DesktopAssistant.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DesktopAssistant"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DrawingImage x:Key="svg1">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M1024,1024z M0,0z M574.293333,138.666667A32,32,0,0,1,578.688,202.368L574.336,202.666667 213.333333,202.666667A10.666667,10.666667,0,0,0,202.965333,210.901333L202.666667,213.333333 202.666667,810.666667A10.666667,10.666667,0,0,0,210.901333,821.034667L213.333333,821.333333 768,821.333333A10.666667,10.666667,0,0,0,778.368,813.098667L778.666667,810.666667 778.666667,454.357333A32,32,0,0,1,842.368,450.005333L842.666667,454.357333 842.666667,810.666667A74.666667,74.666667,0,0,1,774.144,885.077333L768,885.333333 213.333333,885.333333A74.666667,74.666667,0,0,1,138.922667,816.810667L138.666667,810.666667 138.666667,213.333333A74.666667,74.666667,0,0,1,207.189333,138.922667L213.333333,138.666667 574.293333,138.666667z M650.666667,554.666667A32,32,0,1,1,650.666667,618.666667L330.666667,618.666667A32,32,0,1,1,330.666667,554.666667L650.666667,554.666667z M480,384A32,32,0,1,1,480,448L330.666667,448A32,32,0,1,1,330.666667,384L480,384z M854.528,122.752A32,32,0,0,1,854.528,167.978667L658.432,364.117333A32,32,0,0,1,613.205333,318.848L809.301333,122.752A32,32,0,0,1,854.528,122.752z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+        <DrawingImage x:Key="svg2">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M1024,1024z M0,0z M384,576L192,576C153.6,576,128,601.6,128,640L128,832C128,870.4,153.6,896,192,896L384,896C422.4,896,448,870.4,448,832L448,640C448,601.6,422.4,576,384,576z M384,832L192,832 192,640 384,640 384,832z M864,128L160,128C140.8,128,128,140.8,128,160L128,480C128,499.2 140.8,512 160,512 179.2,512 192,499.2 192,480L192,192 832,192 832,832 544,832C524.8,832 512,844.8 512,864 512,883.2 524.8,896 544,896L864,896C883.2,896,896,883.2,896,864L896,160C896,140.8,883.2,128,864,128z M640,544C640,524.8,627.2,512,608,512L556.8,512 691.2,377.6C704,364.8 704,345.6 691.2,332.8 678.4,320 659.2,320 646.4,332.8L512,467.2 512,416C512,396.8 499.2,384 480,384 460.8,384 448,396.8 448,416L448,544C448,563.2,460.8,576,480,576L608,576C627.2,576,640,563.2,640,544z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+        <DrawingImage x:Key="svg3">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M1024,1024z M0,0z M821.973333,725.333333A32,32,0,0,1,826.325333,789.034667L821.973333,789.333333 202.666667,789.333333A32,32,0,0,1,198.314667,725.632L202.666667,725.333333 821.973333,725.333333z M821.973333,469.333333A32,32,0,0,1,826.325333,533.034667L821.973333,533.333333 202.666667,533.333333A32,32,0,0,1,198.314667,469.632L202.666667,469.333333 821.973333,469.333333z M821.973333,213.333333A32,32,0,0,1,826.325333,277.034667L821.973333,277.333333 202.666667,277.333333A32,32,0,0,1,198.314667,213.632L202.666667,213.333333 821.973333,213.333333z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+        <Style TargetType="Button" x:Key="BtnCustomStyle">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Button.Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ItemButton" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="Transparent"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="MyBackgroundElement" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                            <ContentPresenter x:Name="ButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="MyBackgroundElement" Property="Background" Value="Black"/>
+                                <Setter TargetName="MyBackgroundElement" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ChangeButton" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="Transparent"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="MyBackgroundElement" Background="Black" BorderBrush="Transparent" BorderThickness="0">
+                            <ContentPresenter x:Name="ButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>
